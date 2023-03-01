@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Supermercado </title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Campaña Supermercado 2023</h1>
+     <h2>Completa el siguiente formulario para saber si tomara la suscripcion</h2>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="MntMeatProducts" placeholder="MntMeatProducts" required="required" />
+        <input type="text" name="Recency" placeholder="Recency" required="required" />
+		<input type="number" size = "3" name="Age" min = "15" max = "110" placeholder="Year_Birth" required="required" />
+        <input type="text" name="NumStorePurchases" placeholder="NumStorePurchases" required="required" />
+        <input type="text" name="NumCatalogPurchases" placeholder="NumCatalogPurchases" required="required" />
+        <input type="text" name="Income" placeholder="Income" required="required" />
+        <input type="text" name="MntGoldProds" placeholder="NumGoldProds" required="required" />
+        <input type="text" name="MntWines" placeholder="MntWines" required="required" />
+        <button type="submit" class="btn">Prediccion</button>
+    </form>
+
+     <a href="{{ url_for('home') }}">Volver</a>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+
+
+
+
+ </div>
+
+
+</body>
+</html>
+

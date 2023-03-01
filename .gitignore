@@ -1,0 +1,4 @@
+**/docs/
+**/web/lib
+**/web/bin
+**/web/__pycache__
