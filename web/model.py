@@ -7,11 +7,11 @@ pd.options.display.float_format = '{:.2f}'.format
 
 df = pd.read_csv("superstore_data.csv")
 base = df.copy()
-base['Id'] = range(len(base))
+# base['Id'] = range(len(base))
 # Feature selection
-base = df[['Id','MntMeatProducts','Recency','Year_Birth','NumStorePurchases', 'NumCatalogPurchases', 'Income','MntGoldProds', 'MntWines','Response']]
+base = df[['MntMeatProducts','Response']]
 # Edad
-base["Edad"] = 2023 - pd.to_datetime(base["Year_Birth"], format="%Y").apply(lambda x: x.year)
+# base["Edad"] = 2023 - pd.to_datetime(base["Year_Birth"], format="%Y").apply(lambda x: x.year)
 # Columna Income se imputa por la media los valores nulos
 base = base.fillna(base.mean(numeric_only=True))
 # Se elimina la columna year birth pues no es relevante
@@ -34,7 +34,7 @@ classification.fit(X, y)
 
 
 # Guarda el modelo
-pickle.dump(classification, open('model.pkl','wb'))
+# pickle.dump(classification, open('model.pkl','wb'))
 #
 # '''
 # #Loading model to compare the results

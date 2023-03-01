@@ -18,8 +18,8 @@
      <table>
     <tr>
 	<form action="{{ url_for('predictcsv')}}" method="POST" enctype="multipart/form-data">
-    		<input type="file" name="fileupload" id="fileToUpload">
-    		<input type="submit" value="Upload File" name="submit">
+        <input type="file" name="fileupload" id="fileToUpload">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
 	</form>
     </tr>
     </table>
