@@ -7,6 +7,8 @@ from lightgbm import LGBMClassifier
 from catboost import CatBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer, Binarizer, RobustScaler, OneHotEncoder, LabelEncoder, PowerTransformer, QuantileTransformer
+from sklearn.pipeline import Pipeline, make_pipeline
 
 def confusion(model, predictors, target):
     """
@@ -56,3 +58,46 @@ def reportes(modelo, pred, tar, nombre):
     return salida
        
 
+def modelos_ml(modelos, xtrain, ytrain):
+    """
+    Evalua modelos de machine learning
+
+    modelos: Lista de tuplas con los algoritmos
+    xtrain: Datos de entrenamiento
+    ytrain: Variable objetivo de los datos de entrenamiento
+    """
+    nombres = []
+    res = []
+    scoring = metrics.make_scorer(metrics.f1_score)
+    seed = 12345
+
+    for nombre, algoritmo in modelos:
+        scaler = QuantileTransformer() 
+        pipeline = make_pipeline(scaler, algoritmo) # codigo-alumno
+        kfold = StratifiedKFold(n_splits = 5, shuffle = True, random_state = seed)
+        results = cross_val_score(pipeline, xtrain, ytrain, cv = kfold, scoring = scoring)
+        res.append(results)
+        nombres.append(nombre)
+        print("F1 score {}: {}".format(nombre, results.mean()))
+
+    plt.figure(figsize=(8,8))
+    plt.ylabel(scoring)
+    plt.boxplot(res)
+    plt.xticks(range(1, len(nombres) + 1), nombres, rotation = 45)
+    plt.show()    
+    
+def modelos_pred(modelos, xtrain, ytrain, xtest, ytest):
+    """
+    Evalua modelos de machine learning
+
+    modelos: Lista de tuplas con los algoritmos
+    xtrain: Datos de entrenamiento
+    ytrain: Variable objetivo de los datos de entrenamiento
+    xtest: Datos de testeo
+    ytest: Variable objetivo de los datos de testeo
+    """
+    
+    for name, model in modelos:
+        model.fit(xtrain, ytrain)
+        scores = metrics.f1_score(ytest, model.predict(xtest))
+        print("{}: {}".format(name, scores))   

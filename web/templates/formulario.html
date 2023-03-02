@@ -19,14 +19,13 @@
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<input type="text" name="Recency" placeholder="Recency" min = "0" max = "1000 "required="required" />
-        <input type="text" name="NumCatalogPurchases"  min = "0" max = "1000 "placeholder="NumCatalogPurchases" required="required" />
         <input type="text" name="NumStorePurchases" placeholder="NumStorePurchases" required="required" />
-        <input type="text" name="MntMeatProducts" min = "0" max = "1000 "placeholder="MntMeatProducts" required="required" />
+        <input type="text" name="NumCatalogPurchases"  min = "0" max = "1000 "placeholder="NumCatalogPurchases" required="required" />
         <input type="text" name="MntWines" placeholder="MntWines" required="required" />
+        <input type="text" name="MntMeatProducts" min = "0" max = "1000 "placeholder="MntMeatProducts" required="required" />
         <input type="text" name="NumWebVisitsMonth" placeholder="NumWebVisitsMonth" required="required" />
-        <input type="text" name="MntGoldProds" placeholder="MntGoldProds" required="required" />
+        <input type="text" name="Teenhome" placeholder="Teenhome" required="required" />
         <input type="text" name="Income" placeholder="Income" required="required" />
-        <input type="text" name="tiempo_participacion" placeholder="tiempo_participacion" required="required" />
         <button type="submit" class="btn">Prediccion</button>
     </form>
 

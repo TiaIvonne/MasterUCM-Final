@@ -14,7 +14,7 @@ from basicas import preprocesa, inserta
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
-model_form = pickle.load(open('model_9.pkl', 'rb'))
+# model_form = pickle.load(open('model_9.pkl', 'rb'))
 
 uploads_dir = './instance/uploads'
 os.makedirs(uploads_dir, exist_ok=True)
@@ -40,8 +40,8 @@ def predict():
     """
     int_features = [float(x) for x in request.form.values()]  # Toma los valores del formulario
     final_features = [np.array(int_features)]
-    prediction = model_form.predict(final_features)
-    probability = np.max(model_form.predict_proba(final_features)) * 100  # Calcula las probabilidades
+    prediction = model.predict(final_features)
+    probability = round(np.max(model.predict_proba(final_features)) * 100 ,2) # Calcula las probabilidades
     output = prediction[0], 2
     if (output == 1):
         out = "Yes"
