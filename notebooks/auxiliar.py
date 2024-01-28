@@ -33,16 +33,16 @@ def reportes(modelo, pred, tar, nombre):
     target: variable objetivo
     nombre: String para nombrar el reporte
     """
-    
+
     pre = modelo.predict(pred) # Crea las predicciones
-    
+
     accuracy = round(accuracy_score(tar, pre), 4)
     recall = round(recall_score(tar, pre), 4)
     roc_auc = round(roc_auc_score(tar, pre), 4)
     precision = round(precision_score(tar, pre),4)
-    f1 = round(f1_score(tar, pre, average = "binary"),4)  
-    
-    
+    f1 = round(f1_score(tar, pre, average = "binary"),4)
+
+
     # Crea un data frame con los resultados
     salida = pd.DataFrame(
         {
@@ -56,7 +56,7 @@ def reportes(modelo, pred, tar, nombre):
     )
 
     return salida
-       
+
 
 def modelos_ml(modelos, xtrain, ytrain):
     """
@@ -72,7 +72,7 @@ def modelos_ml(modelos, xtrain, ytrain):
     seed = 12345
 
     for nombre, algoritmo in modelos:
-        scaler = QuantileTransformer() 
+        scaler = QuantileTransformer()
         pipeline = make_pipeline(scaler, algoritmo) # codigo-alumno
         kfold = StratifiedKFold(n_splits = 5, shuffle = True, random_state = seed)
         results = cross_val_score(pipeline, xtrain, ytrain, cv = kfold, scoring = scoring)
@@ -84,8 +84,8 @@ def modelos_ml(modelos, xtrain, ytrain):
     plt.ylabel(scoring)
     plt.boxplot(res)
     plt.xticks(range(1, len(nombres) + 1), nombres, rotation = 45)
-    plt.show()    
-    
+    plt.show()
+
 def modelos_pred(modelos, xtrain, ytrain, xtest, ytest):
     """
     Evalua modelos de machine learning
@@ -96,8 +96,8 @@ def modelos_pred(modelos, xtrain, ytrain, xtest, ytest):
     xtest: Datos de testeo
     ytest: Variable objetivo de los datos de testeo
     """
-    
+
     for name, model in modelos:
         model.fit(xtrain, ytrain)
         scores = metrics.f1_score(ytest, model.predict(xtest))
-        print("{}: {}".format(name, scores))   
+        print("{}: {}".format(name, scores))
