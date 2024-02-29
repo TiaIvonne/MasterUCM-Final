@@ -1,6 +1,11 @@
 ## README
 
 
+## How to use this project?
+
+It's possible to explore jupyter notebook using this link: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TiaIvonne/MasterUCM-Final/HEAD)
+
+
 Welcome to my final project to get a Master in Big Data and Business Analytics of the Universidad Complutense de Madrid. This journey begins with a deep study in database administration, statistics, programming languages (Python, R) and machine learning.
 
 At the end of this journey I would be capable to combine different techniques of machine learning to solve a problem and offer a solution for a real world problem.
@@ -55,6 +60,3 @@ The dataset is highly imbalanced which represent a problem or a challenge. There
 
 I wanted to understand different tradeoffs between multiple algorithms using their own features for dealing with this kind of dataset.
 
-## How to use this project?
-
-It's possible to explore jupyter notebook using this link: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TiaIvonne/MasterUCM-Final/HEAD)
