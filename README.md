@@ -1,47 +1,60 @@
 ## README
 
 
-Welcome to my final project towards Master in Big Data and Business Analytics of the Universidad Complutense de Madrid.
+Welcome to my final project to get a Master in Big Data and Business Analytics of the Universidad Complutense de Madrid. This journey begins with a deep study in database administration, statistics, programming languages (Python, R) and machine learning.
 
-You can check the link to the repository. Below you can find snippets of my journey.
+At the end of this journey I would be capable to combine different techniques of machine learning to solve a problem and offer a solution for a real world problem.
 
-- https://www.kaggle.com/datasets/ahsan81/superstore-marketing-campaign-dataset
-- 
-- 
-- 
+## Overview
 
+A company named 'Supermercado S.A' has been developing a strong process of advertising and marketing due to the upcoming christmas season.
 
-## Why did I do this project?
+The main goal is to obtain a prediction which can indicate if the client will take a positive decision about an offer. Also we would like to get insights about collected data to elaborate a portfolio of customer’s profiles: this outcome can be used by the sales team for example to create email campaigns.
 
-We need to find the best model to predict the sales of the Superstore. In this context a ‘model’ is [...]. 
-What makes a model better? [...]
+Dataset used for this project: https://www.kaggle.com/datasets/ahsan81/superstore-marketing-campaign-dataset
 
-A company named 'Supermercado S.A' has been developing a strong process of advertising and marketing due to upcoming christmas season. 
+## Steps
 
-Its plan named ‘superVIP’ is to convince customers to pay 499 euros instead of the total VIP annual subscription which is [..]. Some of the benefits include: 20% discount in all products without any monthly limit even if they’re bought online. 
+The dataset had to be cleaned before moving on to subsequent steps.
+New columns were created based on existing ones to check or test if these new features influenced the algorithms.
 
 
-—
+Different notebooks were created to run step by step according to the following itinerary:
 
-1 Introducción
-La empresa Supermercado S.A o Súper ha estado desarrollando un fuerte proceso de inversión en publicidad y marketing para sus campañas de fiestas y cambios de temporada.
-Para este análisis en particular Súper ha trabajado en un ambicioso plan de negocios para fidelizar a sus clientes de siempre.
-Este plan ha sido llamado súperVIP y ofrece una interesante oferta de temporada: En vez de pagar el total de la suscripción por la membresía vip, ofrece los mismos beneficios a la mitad del costo de suscripción por solo 499 euros al año:
-• 20% de descuento en todas las compras realizadas, sin límite mensual, incluyendo compras vía web, compras telefónicas a través del servicio súper-catálogo y en comercios asociados a Súper como Súper Bencinera, Súper Minimarket o Súper Farmacia.
-Súper desea acercarse a sus clientes de forma personalizada para reforzar la imagen de la compañía como el lugar de siempre con los mejores productos y beneficios del mercado.
-Este proceso de fidelización incluye llamadas telefónicas, mensajería de texto o el uso de emails personalizados para lograr la suscripción, además del correspondiente entrenamiento y capacitación a la fuerza de ventas.
-Súper al igual que otras empresas del mercado, desea comprobar las bondades las herramientas de Machine Learning para agilizar procesos del mercado y obtener conocimientos útiles sobre la información contenida en las bases de datos de los clientes de la compañía, además de focalizar los esfuerzos y optimizar costos.
-Para esto, Súper ha puesto a disposición un archivo de tipo csv con los clientes registrados en la empresa con el que se deben realizar los correspondientes análisis y estudios.
+* Data Cleaning: Analyzing EDA, data cleaning, removing duplicates, handling missing data, analyzing outliers and getting interesting insights from the dataset.
+* Modeling: Once my dataset is ready to work we apply machine learning models for its first time. This is achieved by running a function which quickly compares different algorithms.
 
-----
+Then each algorithm is analyzed in detail with its respective tunning process:
+* Logistic regression
+* Random forest classifier
+* Decision tree
+* AdaBoost
+* CatBoost
+* LightGBM
+* XGBoost
+* Gradient Boosting
+
+Each machine learning algorithm was measured in execution time, CPU usage and algorithm performance.
+Finally a comparison table is created with the measurements of the different algorithms and a graph showing the features that have the most impact on the winning model.
+
+For additonal investigation a few special notebooks are created to test automatic variable selection methods and improvements using the winning model, data standardization techniques, and the use of AutoML to try different machine learning techniques.
+
+* Relevant Models: A special notebook is created with the results of the winning model.
+* Standarization Techniques: A special notebook is created with the results of the data standardization techniques.
+* Automatic Variable Selection: A special notebook is created with the results of the automatic variable selection methods.
+* In addition, a python script was created for help with visualization of the results.(Generate graphs, tables, charts and confusion matrix)
+
+## Challenges
 
 
+It is crucial to find the best model to predict the sales of the Superstore. In this context a ‘model’ is a machine learning algorithm.
 
+What makes a model better? we can compare different models and choose the one that performs better. My criteria was to choose a model that has a high accuracy and low execution time.
 
-## What is covered?
+The dataset is highly imbalanced which represent a problem or a challenge. There are a lot of techniques for balancing data artificially. Since this is a a project with educational purposes I did not implement any technique to balance the data.
 
+I wanted to understand different tradeoffs between multiple algorithms using their own features for dealing with this kind of dataset.
 
 ## How to use this project?
 
-
-# 
+It's possible to explore jupyter notebook using this link: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TiaIvonne/MasterUCM-Final/HEAD)
